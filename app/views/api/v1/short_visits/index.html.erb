@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Listing Short Visits</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Short url</th>
+      <th>Visitor ip</th>
+      <th>Visitor city</th>
+      <th>Visitor state</th>
+      <th>Visitor country</th>
+      <th>Visitor country iso</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @short_visits.each do |short_visit| %>
+        <tr>
+          <td><%= short_visit.short_url.orginal_url %></td>
+          <td><%= short_visit.visitor_ip %></td>
+          <td><%= short_visit.visitor_city %></td>
+          <td><%= short_visit.visitor_state %></td>
+          <td><%= short_visit.visitor_country %></td>
+          <td><%= short_visit.visitor_country_iso %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+</table>

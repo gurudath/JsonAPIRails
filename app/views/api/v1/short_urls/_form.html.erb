@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>New short Url</h1>
+  <%= form_tag(api_v1_new_user_url, {:role => "form", :style => "display: block;", :id => "login-form", method: :post}) do |f| %>
+      <div class="form-group ">
+        <%= label_tag 'Orginal Url' %><br>
+        <%= text_field_tag 'short_url[orginal_url]', '',class: "form-control", :required => true %>
+      </div>
+      <div class="actions form-group">
+        <%= submit_tag "Submit", class: 'btn btn-primary' %>
+      </div>
+      <div class="actions form-group"><%= link_to 'Back', api_v1_short_urls_path, class: 'btn btn-primary' %></div>
+
+  <% end %>
+</div>

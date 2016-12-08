@@ -1,0 +1,32 @@
+  <div class="container">
+    <h2>Listing short Url</h2>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Orginal url</th>
+        <th>Shorty</th>
+        <th>Short Url</th>
+        <th>User</th>
+        <th>Visit count</th>
+        <th colspan="2"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @short_urls.each do |short_url| %>
+          <tr>
+            <td><%= short_url.orginal_url %></td>
+            <td><%= short_url.shorty %></td>
+            <td><%= link_to 'Short Url', "#{request.protocol}#{request.host_with_port}/short/#{short_url.shorty}",target:'_blank'%></td>
+            <td><%= User.find_by(id:short_url.user_id).try(:display_name) %></td>
+            <td><%= short_url.visit_count %></td>
+            <td><%= link_to 'Destroy', "delete_short_url/#{short_url.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'New Short url', new_api_v1_short_url_path , :class=>"btn btn-primary" %>
+  </div>
+</table>
+
+<br>
+
